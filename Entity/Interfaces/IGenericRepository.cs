@@ -10,7 +10,7 @@ namespace Entity.Interfaces
         
         void Delete(T obj);
 
-        void SaveChangesAsync();
+        void SaveAsync();
 
         void Update (T obj);
 

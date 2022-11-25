@@ -34,9 +34,9 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("PegMe.Models.Course", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("ClubId")
                         .HasColumnType("INTEGER");
@@ -66,8 +66,8 @@ namespace Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<Guid?>("CourseId")
-                        .HasColumnType("TEXT");
+                    b.Property<int?>("CourseId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("Index")
                         .HasColumnType("INTEGER");
