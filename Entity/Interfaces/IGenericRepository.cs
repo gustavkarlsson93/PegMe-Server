@@ -6,5 +6,13 @@ namespace Entity.Interfaces
 
         Task<T> GetByIdAsync(int id);
 
+        void Insert(T obj);
+        
+        void Delete(T obj);
+
+        void SaveChangesAsync();
+
+        void Update (T obj);
+
     }
 }
