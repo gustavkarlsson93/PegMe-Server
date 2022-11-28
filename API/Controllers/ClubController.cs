@@ -16,12 +16,18 @@ namespace API.Controllers
         }
         
         [HttpPost]
-        public async Task<IActionResult> CreateClub(Club club)
+        public async Task<IActionResult> CreateClubAsync(Club club)
         {
-           
-             _repository.Insert(club);
+            
+             _repository.InsertAsync(club);
              _repository.SaveAsync();
             return Ok(club);
+        }
+        [HttpGet("GetAllClubs")]
+        public async Task<IActionResult> GetAllClubs()
+        {
+            var ListOfClubs = await _repository.ListAllAsync();
+            return Ok(ListOfClubs);
         }
     }
 }
