@@ -2,7 +2,7 @@
 {
     public class ClubDTO
     {
-        public int ClubId { get; set; }
-        public string ClubName { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }

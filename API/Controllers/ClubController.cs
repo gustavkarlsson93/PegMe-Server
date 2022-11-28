@@ -33,7 +33,8 @@ namespace API.Controllers
         public async Task<IReadOnlyList<ClubDTO>> GetAllClubs()
         {
             IReadOnlyList<Club> ListOfClubs = await _repository.ListAllAsync();
-            return _mapper.Map<IReadOnlyList<Club>,IReadOnlyList<ClubDTO>>(ListOfClubs);
+            var result = _mapper.Map<IReadOnlyList<Club>,IReadOnlyList<ClubDTO>>(ListOfClubs);
+            return result;
         }
         [HttpGet("GetClubById")]
          public async Task<IActionResult> GetClubById(int id)
