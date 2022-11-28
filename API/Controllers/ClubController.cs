@@ -1,3 +1,5 @@
+using API.DTO;
+using AutoMapper;
 using Entity.Interfaces;
 using Infrastructure;
 using Microsoft.AspNetCore.Mvc;
@@ -8,10 +10,12 @@ namespace API.Controllers
     public class ClubController : BaseController
     {
         private readonly IGenericRepository<Club> _repository;
+        private readonly IMapper _mapper;
 
-        public ClubController(IGenericRepository<Club> repository)
+        public ClubController(IGenericRepository<Club> repository, IMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper; 
 
         }
         
@@ -25,10 +29,10 @@ namespace API.Controllers
         }
 
         [HttpGet("GetAllClubs")]
-        public async Task<IActionResult> GetAllClubs()
+        public async Task<IReadOnlyList<ClubDTO>> GetAllClubs()
         {
-            var ListOfClubs = await _repository.ListAllAsync();
-            return Ok(ListOfClubs);
+            IReadOnlyList<Club> ListOfClubs = await _repository.ListAllAsync();
+            return _mapper.Map<IReadOnlyList<Club>,IReadOnlyList<ClubDTO>>(ListOfClubs);
         }
         [HttpGet("GetClubById")]
          public async Task<IActionResult> GetClubById(int id)
