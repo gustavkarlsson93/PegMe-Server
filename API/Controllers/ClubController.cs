@@ -1,4 +1,5 @@
 using API.DTO;
+using API.ErrorResponse;
 using AutoMapper;
 using Entity.Interfaces;
 using Infrastructure;
@@ -38,6 +39,7 @@ namespace API.Controllers
          public async Task<IActionResult> GetClubById(int id)
         {
             Club Result = await _repository.GetByIdAsync(id);
+            throw new APIException(System.Net.HttpStatusCode.NotFound, "Not 123 Found");
             return Ok(Result);
         }
     }

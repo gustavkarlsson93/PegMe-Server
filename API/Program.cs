@@ -2,6 +2,8 @@ using API.Helpers;
 using Entity.Interfaces;
 using Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using API.Middleware;
+using Microsoft.AspNetCore.Builder;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +18,11 @@ builder.Services.AddDbContext<ClubDbContext>(
     o => o.UseSqlite(builder.Configuration.GetConnectionString("SqlServer"))
     );
 
+
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionMiddleware>();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
