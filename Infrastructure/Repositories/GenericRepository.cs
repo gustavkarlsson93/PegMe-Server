@@ -19,7 +19,7 @@ namespace Infrastructure
 
         public void Delete(T obj)
         {
-            T existing = table.Find(obj);
+            var existing = table.Find(obj);
             table.Remove(existing);
         }
 
@@ -28,9 +28,10 @@ namespace Infrastructure
             return await table.FindAsync(id);
         }
 
-        public void Insert(T obj)
+        public async void InsertAsync(T obj)
         {
-           table.Add(obj);
+           
+           await table.AddAsync(obj);;
         }
 
         public async Task<IReadOnlyList<T>> ListAllAsync()

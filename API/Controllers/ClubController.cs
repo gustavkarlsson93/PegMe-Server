@@ -23,11 +23,18 @@ namespace API.Controllers
              _repository.SaveAsync();
             return Ok(club);
         }
+
         [HttpGet("GetAllClubs")]
         public async Task<IActionResult> GetAllClubs()
         {
             var ListOfClubs = await _repository.ListAllAsync();
             return Ok(ListOfClubs);
+        }
+        [HttpGet("GetClubById")]
+         public async Task<IActionResult> GetClubById(int id)
+        {
+            Club Result = await _repository.GetByIdAsync(id);
+            return Ok(Result);
         }
     }
 }

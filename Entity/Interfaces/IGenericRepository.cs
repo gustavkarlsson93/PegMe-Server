@@ -6,7 +6,7 @@ namespace Entity.Interfaces
 
         Task<T> GetByIdAsync(int id);
 
-        void Insert(T obj);
+        void InsertAsync(T obj);
         
         void Delete(T obj);
 
