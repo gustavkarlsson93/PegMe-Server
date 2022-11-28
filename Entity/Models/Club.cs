@@ -7,3 +7,4 @@ namespace PegMe.Models
         public List<Course>? Courses { get; set; }
     }
 }
+

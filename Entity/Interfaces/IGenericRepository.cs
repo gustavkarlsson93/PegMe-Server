@@ -4,7 +4,7 @@ namespace Entity.Interfaces
     {
         Task<IReadOnlyList<T>> ListAllAsync();
 
-        Task<T> GetByIdAsync(int id);
+        ValueTask<T> GetByIdAsync(int id);
 
         void InsertAsync(T obj);
         

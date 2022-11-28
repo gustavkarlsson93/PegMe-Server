@@ -23,9 +23,10 @@ namespace Infrastructure
             table.Remove(existing);
         }
 
-        public async Task<T> GetByIdAsync(int id)
+        public  ValueTask<T?> GetByIdAsync(int id)
         {
-            return await table.FindAsync(id);
+            
+            return  table.FindAsync(id);
         }
 
         public async void InsertAsync(T obj)
