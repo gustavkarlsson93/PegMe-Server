@@ -1,0 +1,30 @@
+[
+  {
+    "Id": 1,
+    "Name": "Norrköping Söderköping Golfklubb"
+  },
+  {
+    "Id": 2,
+    "Name": "Linköping Golfklubb"
+  },
+  {
+    "Id": 3,
+    "Name": "Landeryd GolfklubbK"
+  },
+  {
+    "Id": 4,
+    "Name": "Vreta Kloster Golfklubb"
+  },
+  {
+    "Id": 5,
+    "Name": "Mjölby Golfklubb"
+  },
+  {
+    "Id": 6,
+    "Name": "Motala Golfklubb"
+  },
+  {
+    "Id": 7,
+    "Name": "Finspång Golfklubb"
+  }
+]
