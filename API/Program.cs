@@ -36,5 +36,17 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+//SeedData
+using var scope = app.Services.CreateScope();
+var services = scope.ServiceProvider;
 
+var logger = services.GetRequiredService<ILogger<Program>>();
+try{
+    var context = services.GetRequiredService<ClubDbContext>();
+    await context.Database.MigrateAsync();
+    await ClubContextSeed.SeedAsync(context, logger);
+}catch (Exception ex)
+{
+    logger.LogError(ex, "Somthing wrong happend during migration");
+}
 app.Run();

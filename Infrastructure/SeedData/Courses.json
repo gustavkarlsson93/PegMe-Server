@@ -1,0 +1,82 @@
+[
+  {
+    "Id": 1,
+    "Name": "Klinga 18 hål",
+    "ClubId": 1
+  },
+  {
+    "Id": 2,
+    "Name": "Hylinge 18 hål",
+    "ClubId": 1
+  },
+  {
+    "Id": 3,
+    "Name": "Hylinge 9 hål",
+    "ClubId": 1
+  },
+  {
+    "Id": 4,
+    "Name": "Linköping GK",
+    "ClubId": 2
+  },
+  {
+    "Id": 5,
+    "Name": "Classic",
+    "ClubId": 3
+  },
+  {
+    "Id": 6,
+    "Name": "Masters",
+    "ClubId": 3
+  },
+  {
+    "Id": 7,
+    "Name": "Skandiamäklar-slingan",
+    "ClubId": 3
+  },
+  {
+    "Id": 8,
+    "Name": "Västerby Links",
+    "ClubId": 3
+  },
+  {
+    "Id": 9,
+    "Name": "18-hålsbanan",
+    "ClubId": 4
+  },
+  {
+    "Id": 10,
+    "Name": "Korthålsbanan Algominbanan 6h",
+    "ClubId": 4
+  },
+  {
+    "Id": 11,
+    "Name": "Pay and play",
+    "ClubId": 4
+  },
+  {
+    "Id": 12,
+    "Name": "Mjölby golfbana",
+    "ClubId": 5
+  },
+  {
+    "Id": 13,
+    "Name": "18 hålsbanan",
+    "ClubId": 6
+  },
+  {
+    "Id": 14,
+    "Name": "9 hålsbanan",
+    "ClubId": 6
+  },
+  {
+    "Id": 15,
+    "Name": "1 FIGK 18-hålsbana",
+    "ClubId": 7
+  },
+  {
+    "Id": 16,
+    "Name": "2 FIGK 9-hålsbana röd",
+    "ClubId": 7
+  }
+]
