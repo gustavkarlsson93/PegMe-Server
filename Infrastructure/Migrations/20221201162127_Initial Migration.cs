@@ -4,7 +4,7 @@
 
 namespace Infrastructure.Migrations
 {
-    public partial class Initialmigration : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -27,7 +27,7 @@ namespace Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: true),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
                     LengthOut = table.Column<int>(type: "INTEGER", nullable: false),
                     LengthIn = table.Column<int>(type: "INTEGER", nullable: false),
                     LengthTotal = table.Column<int>(type: "INTEGER", nullable: false),
