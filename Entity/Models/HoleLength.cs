@@ -6,5 +6,6 @@ namespace PegMe.Models
     {
         public string Tee { get; set; }
         public int Length { get; set; }
+        public int HoleId { get; set; }
     }
 }

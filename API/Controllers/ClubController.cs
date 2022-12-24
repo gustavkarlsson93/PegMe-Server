@@ -1,8 +1,9 @@
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using API.DTO;
 using API.ErrorResponse;
 using AutoMapper;
 using Entity.Interfaces;
-using Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using PegMe.Models;
 
@@ -30,17 +31,20 @@ namespace API.Controllers
         }
 
         [HttpGet("GetAllClubs")]
-        public async Task<IReadOnlyList<ClubDTO>> GetAllClubs()
+        public async Task<ClubsDto> GetAllClubs()
         {
-            IReadOnlyList<Club> ListOfClubs = await _repository.ListAllAsync();
-            var result = _mapper.Map<IReadOnlyList<Club>,IReadOnlyList<ClubDTO>>(ListOfClubs);
-            return result;
+            var clubs = await _repository.ListAllAsync();
+            var clubsDto = _mapper.Map<ICollection<ClubDto>>(clubs.OrderBy(x => x.Name));
+            return new ClubsDto
+            {
+                Clubs = clubsDto
+            };
         }
         [HttpGet("GetClubById")]
          public async Task<IActionResult> GetClubById(int id)
         {
             Club Result = await _repository.GetByIdAsync(id);
-            throw new APIException(System.Net.HttpStatusCode.NotFound, "Not 123 Found");
+            //throw new APIException(System.Net.HttpStatusCode.NotFound, "Not 123 Found");
             return Ok(Result);
         }
     }

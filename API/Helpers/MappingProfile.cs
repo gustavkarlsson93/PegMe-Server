@@ -8,9 +8,8 @@ namespace API.Helpers
     {
         public MappingProfile()
         {
-            CreateMap<Club, ClubDTO>();
-                
-                
+            CreateMap<Club, ClubDto>();
+            
         }
     }
 }
