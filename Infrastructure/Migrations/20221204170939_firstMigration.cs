@@ -4,7 +4,7 @@
 
 namespace Infrastructure.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class firstMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -31,7 +31,7 @@ namespace Infrastructure.Migrations
                     LengthOut = table.Column<int>(type: "INTEGER", nullable: false),
                     LengthIn = table.Column<int>(type: "INTEGER", nullable: false),
                     LengthTotal = table.Column<int>(type: "INTEGER", nullable: false),
-                    ClubId = table.Column<int>(type: "INTEGER", nullable: true)
+                    ClubId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -40,47 +40,50 @@ namespace Infrastructure.Migrations
                         name: "FK_Courses_Clubs_ClubId",
                         column: x => x.ClubId,
                         principalTable: "Clubs",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Holes",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "INTEGER", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Par = table.Column<int>(type: "INTEGER", nullable: false),
                     Index = table.Column<int>(type: "INTEGER", nullable: false),
-                    CourseId = table.Column<int>(type: "INTEGER", nullable: true)
+                    CourseId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Holes", x => x.id);
+                    table.PrimaryKey("PK_Holes", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Holes_Courses_CourseId",
                         column: x => x.CourseId,
                         principalTable: "Courses",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
                 name: "HoleLengths",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "INTEGER", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Tee = table.Column<string>(type: "TEXT", nullable: false),
                     Length = table.Column<int>(type: "INTEGER", nullable: false),
-                    Holeid = table.Column<int>(type: "INTEGER", nullable: true)
+                    HoleId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_HoleLengths", x => x.id);
+                    table.PrimaryKey("PK_HoleLengths", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_HoleLengths_Holes_Holeid",
-                        column: x => x.Holeid,
+                        name: "FK_HoleLengths_Holes_HoleId",
+                        column: x => x.HoleId,
                         principalTable: "Holes",
-                        principalColumn: "id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -89,9 +92,9 @@ namespace Infrastructure.Migrations
                 column: "ClubId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_HoleLengths_Holeid",
+                name: "IX_HoleLengths_HoleId",
                 table: "HoleLengths",
-                column: "Holeid");
+                column: "HoleId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Holes_CourseId",

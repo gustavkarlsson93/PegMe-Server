@@ -1,9 +1,11 @@
-﻿namespace PegMe.Models
+﻿using Entity.Models;
+
+namespace PegMe.Models
 {
-    public class HoleLength
+    public class HoleLength : BaseModel
     {
-        public int id { get; set; }
         public string Tee { get; set; }
         public int Length { get; set; }
+        public int HoleId { get; set; }
     }
 }

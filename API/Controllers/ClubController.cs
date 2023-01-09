@@ -2,7 +2,6 @@ using API.Dto;
 using API.ErrorResponse;
 using AutoMapper;
 using Entity.Interfaces;
-using Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using PegMe.Models;
 
@@ -43,7 +42,7 @@ namespace API.Controllers
          public async Task<IActionResult> GetClubById(int id)
         {
             Club Result = await _repository.GetByIdAsync(id);
-            throw new APIException(System.Net.HttpStatusCode.NotFound, "Not 123 Found");
+            //throw new APIException(System.Net.HttpStatusCode.NotFound, "Not 123 Found");
             return Ok(Result);
         }
     }

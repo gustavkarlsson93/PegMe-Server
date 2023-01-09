@@ -1,8 +1,9 @@
+using Entity.Models;
+
 namespace PegMe.Models
 {
-    public class Club
+    public class Club : BaseModel
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public List<Course> Courses { get; set; }
     }
