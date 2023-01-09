@@ -1,4 +1,4 @@
-﻿using API.DTO;
+﻿using API.Dto;
 using AutoMapper;
 using PegMe.Models;
 
@@ -8,8 +8,7 @@ namespace API.Helpers
     {
         public MappingProfile()
         {
-            CreateMap<Club, ClubDTO>();
-                
+            CreateMap<Club, ClubDto>().ReverseMap();                
                 
         }
     }

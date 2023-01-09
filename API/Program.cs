@@ -17,6 +17,14 @@ builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddDbContext<ClubDbContext>(
     o => o.UseSqlite(builder.Configuration.GetConnectionString("SqlServer"))
     );
+    builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy("CorsPolicy", policy =>
+        {
+            policy.AllowAnyHeader().AllowAnyMethod().AllowCredentials()
+                .WithOrigins("https://192.168.1.28:7288");
+        });
+});
 
 
 var app = builder.Build();
@@ -30,7 +38,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseCors("CorsPolicy");
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

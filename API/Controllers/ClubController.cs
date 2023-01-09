@@ -1,4 +1,4 @@
-using API.DTO;
+using API.Dto;
 using API.ErrorResponse;
 using AutoMapper;
 using Entity.Interfaces;
@@ -30,11 +30,14 @@ namespace API.Controllers
         }
 
         [HttpGet("GetAllClubs")]
-        public async Task<IReadOnlyList<ClubDTO>> GetAllClubs()
+        public async Task<ClubsDto> GetAllClubs()
         {
-            IReadOnlyList<Club> ListOfClubs = await _repository.ListAllAsync();
-            var result = _mapper.Map<IReadOnlyList<Club>,IReadOnlyList<ClubDTO>>(ListOfClubs);
-            return result;
+            var clubs = await _repository.ListAllAsync();
+            var clubDtos = _mapper.Map<ICollection<ClubDto>>(clubs.OrderByDescending(x => x.Name));
+            return new ClubsDto
+            {
+                Clubs = clubDtos
+            };
         }
         [HttpGet("GetClubById")]
          public async Task<IActionResult> GetClubById(int id)

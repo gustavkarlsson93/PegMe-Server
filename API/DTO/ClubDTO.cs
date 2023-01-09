@@ -1,6 +1,6 @@
-﻿namespace API.DTO
+﻿namespace API.Dto
 {
-    public class ClubDTO
+    public class ClubDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
